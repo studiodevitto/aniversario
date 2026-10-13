@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
 <meta name="theme-color" content="#100d19">
 <title>Tiago Martins — Birthday Riot!</title>
-
-<!-- Open Graph / WhatsApp preview -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://abre.ai/aniversario-do-tiago">
 <meta property="og:title" content="Tiago Martins — Birthday Riot! 🤘">
@@ -21,11 +19,10 @@
 <meta name="twitter:title" content="Tiago Martins — Birthday Riot! 🤘">
 <meta name="twitter:description" content="Guitarras altas, refrões dos anos 2000 e energia rockstar. Confirma a tua presença!">
 <meta name="twitter:image" content="https://abre.ai/og-image.jpg">
-
 <style>
 :root{--ink:#f7f3ff;--muted:#c8bedb;--bg:#100d19;--panel:#1c1628;--pink:#ff3e9d;--lime:#d8ff3e;--purple:#8f5bff;--line:#49345f}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:auto;-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
 button,input,textarea,select{font:inherit;max-width:100%}
 button,a{ -webkit-tap-highlight-color:transparent}
@@ -44,7 +41,7 @@ h1 span{display:block;color:var(--lime);text-shadow:4px 4px 0 var(--pink);font-s
 .pills{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin:22px 0;padding:0 4px}
 .pill{border:1px solid var(--line);border-radius:999px;padding:7px 11px;font-size:clamp(.65rem,2.3vw,.75rem);font-weight:800;letter-spacing:.06em;color:#f9d8ed}
 .whatsapp-float{position:fixed;right:16px;bottom:16px;z-index:8;display:flex;align-items:center;gap:8px;background:#25D366;color:#072b16;border:0;border-radius:999px;padding:12px 16px;font-weight:900;text-decoration:none;box-shadow:0 6px 24px #0008;font-size:.9rem}
-.hero-cta{display:inline-block;background:var(--pink);color:white;text-decoration:none;font-weight:1000;text-transform:uppercase;letter-spacing:.06em;padding:15px 23px;border-radius:8px;box-shadow:5px 5px 0 var(--lime);margin-top:12px;max-width:100%}
+.hero-cta{display:inline-block;background:var(--pink);color:white;text-decoration:none;font-weight:1000;text-transform:uppercase;letter-spacing:.06em;padding:15px 23px;border-radius:8px;box-shadow:5px 5px 0 var(--lime);margin-top:12px;max-width:100%;cursor:pointer}
 .section{max-width:1000px;margin:0 auto;padding:30px clamp(14px,5vw,20px) clamp(35px,6vw,55px)}
 .section-title{font-family:Impact,'Arial Black',sans-serif;text-transform:uppercase;font-size:clamp(1.6rem,5.5vw,3rem);margin:0 0 18px;letter-spacing:.02em;text-align:center}
 .section-title em{color:var(--pink);font-style:normal}
@@ -52,7 +49,7 @@ h1 span{display:block;color:var(--lime);text-shadow:4px 4px 0 var(--pink);font-s
 .card{background:#1c1628eF;border:1px solid var(--line);border-radius:16px;padding:clamp(16px,4vw,22px);box-shadow:0 14px 40px #0002;min-width:0}
 .card h3{margin:0 0 10px;font-size:clamp(1rem,3.2vw,1.1rem)}
 .card p{color:var(--muted);line-height:1.6;margin:8px 0;font-size:clamp(.9rem,2.6vw,1rem)}
-.big-icon{font-size:1.7rem;margin-bottom:12px}
+.big-icon{font-size:1.7rem;margin-bottom:12px;line-height:1}
 .map-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
 .map-links a,.secondary{color:var(--ink);border:1px solid #ffffff45;border-radius:9px;padding:10px 12px;text-decoration:none;font-size:clamp(.78rem,2.4vw,.85rem);font-weight:700;flex:1 1 auto;text-align:center;min-width:0}
 .video-wrap{aspect-ratio:9/16;max-height:520px;background:#0b0910;border-radius:12px;overflow:hidden;border:1px solid var(--line);position:relative;width:100%}
@@ -67,7 +64,7 @@ h1 span{display:block;color:var(--lime);text-shadow:4px 4px 0 var(--pink);font-s
 .notice{min-height:24px;color:var(--lime);font-weight:700;margin-top:12px;font-size:.9rem}
 footer{text-align:center;color:#9b8eae;padding:28px 16px 90px;font-size:.78rem;line-height:1.5}
 .hidden{display:none!important}
-.modal{position:fixed;inset:0;background:#08060de8;z-index:10;overflow-y:auto;padding:12px;display:flex;justify-content:center;align-items:flex-start;-webkit-overflow-scrolling:touch}
+.modal{position:fixed;inset:0;background:#08060de8;z-index:10;overflow-y:auto;padding:12px;display:flex;justify-content:flex-start;align-items:flex-start;-webkit-overflow-scrolling:touch}
 .admin-panel{width:min(100%,850px);background:#17111f;border:1px solid var(--purple);border-radius:16px;padding:clamp(16px,4vw,22px);margin:12px auto}
 .admin-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .admin-head h2{margin:0;font-size:clamp(1rem,3.5vw,1.3rem)}
@@ -88,8 +85,9 @@ footer{text-align:center;color:#9b8eae;padding:28px 16px 90px;font-size:.78rem;l
 .guest{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px;background:#241a32;border:1px solid var(--line);border-radius:10px;flex-wrap:wrap}
 .guest small{display:block;color:var(--muted);margin-top:4px;word-break:break-word}
 .guest button{background:transparent;border:1px solid #ffffff50;color:white;border-radius:7px;padding:7px;cursor:pointer;flex-shrink:0}
-
-/* ---- Mobile ---- */
+.sync-badge{display:inline-block;font-size:.72rem;padding:4px 9px;border-radius:999px;background:#2a2038;border:1px solid var(--line);color:var(--muted);margin-top:8px}
+.sync-badge.ok{background:#1d3a1d;border-color:#3a6b3a;color:#b6ffb6}
+.sync-badge.err{background:#3a1d1d;border-color:#6b3a3a;color:#ffb6b6}
 @media(max-width:650px){
   .grid,.form-grid{grid-template-columns:1fr}
   .hero{padding-top:36px}
@@ -129,7 +127,12 @@ footer{text-align:center;color:#9b8eae;padding:28px 16px 90px;font-size:.78rem;l
     <section class="section">
       <h2 class="section-title">THE <em>LINE-UP</em></h2>
       <div class="grid">
-        <article class="card"><div class="big-icon">📅</div><h3>Dia de fazer história</h3><p id="dateText">Data a anunciar</p><p id="timeText">Horário a anunciar</p></article>
+        <article class="card">
+          <div class="big-icon" id="dateEmoji">📅</div>
+          <h3>Dia de fazer história</h3>
+          <p id="dateText">Data a anunciar</p>
+          <p id="timeText">Horário a anunciar</p>
+        </article>
         <article class="card"><div class="big-icon">🍽️</div><h3 id="venueName">Rodízio e Pratos</h3><p id="addressText">Morada a confirmar pelo organizador.</p><div class="map-links"><a id="googleLink" href="https://maps.app.goo.gl/8jsLvzd7jyBQTscE9?g_st=ic" target="_blank" rel="noopener">Google Maps ↗</a><a id="wazeLink" href="https://waze.com/ul" target="_blank" rel="noopener">Waze ↗</a><a id="appleLink" href="https://maps.apple.com/" target="_blank" rel="noopener">Apple Maps ↗</a></div></article>
       </div>
     </section>
@@ -170,7 +173,9 @@ footer{text-align:center;color:#9b8eae;padding:28px 16px 90px;font-size:.78rem;l
      <div class="field full"><label for="aVideo">Link do Reel/vídeo do Instagram</label><input id="aVideo" value="https://www.instagram.com/reel/DbtW4MZNMdA/?srtk=YTFqMnNiMnlnc29u"></div>
      <div class="field full"><label for="aGenres">Etiquetas musicais (separadas por vírgula)</label><input id="aGenres" value="POP PUNK, POP ROCK, ALT VIBES, Y2K FOREVER"></div>
     </div>
-    <div class="admin-actions"><button class="save" id="saveDetails" type="button">Guardar alterações</button><button id="resetDetails" type="button">Repor texto inicial</button></div><p class="small">As alterações de conteúdo ficam guardadas neste navegador. O Reel é incorporado no convite; o Instagram pode bloquear a reprodução incorporada em alguns navegadores.</p>
+    <div class="admin-actions"><button class="save" id="saveDetails" type="button">Guardar e publicar para todos</button><button id="resetDetails" type="button">Repor texto inicial</button></div>
+    <p class="small">As alterações são guardadas no Firebase e ficam visíveis para todos os utilizadores.</p>
+    <span class="sync-badge" id="syncBadge">Sincronização: à espera…</span>
    </div>
    <div class="admin-content hidden" id="tab-style">
     <div class="form-grid">
@@ -180,35 +185,56 @@ footer{text-align:center;color:#9b8eae;padding:28px 16px 90px;font-size:.78rem;l
      <div class="field"><label for="aLime">Cor secundária</label><input id="aLime" type="color" value="#d8ff3e"></div>
      <div class="field"><label for="aBg">Cor de fundo</label><input id="aBg" type="color" value="#100d19"></div>
     </div>
-    <div class="admin-actions"><button class="save" id="saveStyle" type="button">Aplicar design</button></div>
+    <div class="admin-actions"><button class="save" id="saveStyle" type="button">Aplicar design para todos</button></div>
    </div>
    <div class="admin-content hidden" id="tab-guests"><p class="small">As confirmações online são guardadas no Firebase e ficam disponíveis no painel autenticado.</p><div class="admin-actions"><button id="exportGuests" type="button">Exportar lista CSV</button><button id="clearGuests" type="button">Excluir todas as confirmações</button></div><div class="guest-list" id="guestList"></div></div>
-   <div class="admin-content hidden" id="tab-security"><p class="small">Altera o PIN de acesso ao painel.</p><div class="field"><label for="newPin">Novo PIN (mínimo 4 caracteres)</label><input id="newPin" type="password" minlength="4" placeholder="Novo PIN"></div><div class="field"><label for="newPin2">Repetir novo PIN</label><input id="newPin2" type="password" minlength="4" placeholder="Repetir PIN"></div><div class="admin-actions"><button class="save" id="changePin" type="button">Alterar PIN</button></div><p class="small">Nota de segurança: neste protótipo, o PIN e os dados ficam no armazenamento local do navegador. Não é adequado para dados privados nem protege contra alguém com acesso técnico ao ficheiro.</p></div>
+   <div class="admin-content hidden" id="tab-security"><p class="small">PIN local (não afeta outros utilizadores; guardado só neste navegador).</p><div class="field"><label for="newPin">Novo PIN (mínimo 4 caracteres)</label><input id="newPin" type="password" minlength="4" placeholder="Novo PIN"></div><div class="field"><label for="newPin2">Repetir novo PIN</label><input id="newPin2" type="password" minlength="4" placeholder="Repetir PIN"></div><div class="admin-actions"><button class="save" id="changePin" type="button">Alterar PIN</button></div></div>
   </div>
  </div>
 </div>
 <script>
-/* ---------- Núcleo do convite ---------- */
+/* ============ NÚCLEO LOCAL (fallback e render) ============ */
 const DEFAULTS={title:"TIAGO'S",subtitle:"LEVEL 38 UNLOCKED",intro:"Guitarras altas, refrões que toda a gente sabe e energia de 2000s. Bora celebrar em modo rockstar — aparece para fazer barulho!",venue:"Rodízio e Pratos",date:"",time:"",address:"",map:"https://maps.app.goo.gl/8jsLvzd7jyBQTscE9?g_st=ic",video:"https://www.instagram.com/reel/DbtW4MZNMdA/?srtk=YTFqMnNiMnlnc29u",genres:"POP PUNK, POP ROCK, ALT VIBES, Y2K FOREVER"};
+const DEFAULTS_STYLE={pink:"#ff3e9d",lime:"#d8ff3e",bg:"#100d19",font:"Impact,'Arial Black',sans-serif",size:"clamp(2.6rem,11vw,8.5rem)"};
 const SHARE_URL = "https://abre.ai/aniversario-do-tiago";
 const $=id=>document.getElementById(id);
 const get=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key))??fallback}catch{return fallback}};
-let settings=get("riotSettings",DEFAULTS), guests=get("riotGuests",[]), pin=get("riotPin","2000");
-function saveLocal(){localStorage.setItem("riotSettings",JSON.stringify(settings));localStorage.setItem("riotGuests",JSON.stringify(guests));localStorage.setItem("riotPin",pin)}
+let settings=get("riotSettings",DEFAULTS);
+let styleSettings=get("riotStyle",DEFAULTS_STYLE);
+let guests=get("riotGuests",[]);
+let pin=get("riotPin","2000");
+
+function saveLocal(){
+  localStorage.setItem("riotSettings",JSON.stringify(settings));
+  localStorage.setItem("riotStyle",JSON.stringify(styleSettings));
+  localStorage.setItem("riotGuests",JSON.stringify(guests));
+  localStorage.setItem("riotPin",pin);
+}
 function safeUrl(s){try{const u=new URL(s);return ["https:","http:"].includes(u.protocol)?u.href:"#"}catch{return "#"}}
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 
-/* ---------- WhatsApp share com link da página ---------- */
-function buildWhatsAppLink(){
-  const msg = "🎸 Vem celebrar o aniversário do Tiago Martins! 🤘 Confirma a tua presença aqui: " + SHARE_URL;
-  return "https://wa.me/?text=" + encodeURIComponent(msg);
-}
-function updateWhatsApp(){
-  const el = $("whatsappShare");
-  if(el) el.href = buildWhatsAppLink();
+/* ============ EMOJI DINÂMICO DO CALENDÁRIO ============ */
+/* O emoji 📅 mostra sempre 17? Não. Os emojis de calendário NÃO mostram o dia real.
+   Para garantir que o número visível corresponde à data, usamos "keycap" digits:
+   o dia 14 -> 1️⃣4️⃣. Assim o "calendário" mostra sempre o dia correto. */
+function dayEmoji(dateStr){
+  if(!dateStr) return "📅";
+  const d = new Date(dateStr + "T12:00:00");
+  if(isNaN(d)) return "📅";
+  const day = d.getDate();
+  const keycaps = {"0":"0️⃣","1":"1️⃣","2":"2️⃣","3":"3️⃣","4":"4️⃣","5":"5️⃣","6":"6️⃣","7":"7️⃣","8":"8️⃣","9":"9️⃣"};
+  const digits = String(day).split("").map(n=>keycaps[n]).join("");
+  return "📅 " + digits;
 }
 
-/* ---------- Render do vídeo do Instagram ---------- */
+/* ============ WHATSAPP ============ */
+function updateWhatsApp(){
+  const msg = "🎸 Vem celebrar o aniversário do Tiago Martins! 🤘 Confirma a tua presença aqui: " + SHARE_URL;
+  const el = $("whatsappShare");
+  if(el) el.href = "https://wa.me/?text=" + encodeURIComponent(msg);
+}
+
+/* ============ VÍDEO INSTAGRAM ============ */
 function renderVideo(){
   const box = $("videoBox");
   const raw = safeUrl(settings.video || "");
@@ -229,17 +255,21 @@ function renderVideo(){
   box.replaceChildren(iframe);
   const timer = setTimeout(()=>{
     if(!iframe.contentWindow){
-      box.innerHTML = '<div class="video-fallback">O Instagram bloqueou a reprodução dentro do site neste navegador.<a href="'+raw+'" target="_blank" rel="noopener">Ver o Reel no Instagram ↗</a><span class="small">Isto acontece quando o navegador bloqueia cookies de terceiros do Instagram.</span></div>';
+      box.innerHTML = '<div class="video-fallback">O Instagram bloqueou a reprodução dentro do site neste navegador.<a href="'+raw+'" target="_blank" rel="noopener">Ver o Reel no Instagram ↗</a></div>';
     }
   }, 8000);
   iframe.addEventListener("load", ()=>clearTimeout(timer));
 }
 
-/* ---------- Aplicar settings ---------- */
+/* ============ APLICAR SETTINGS AO DOM ============ */
 function applySettings(){
  $("heroTitle").innerHTML=`${escapeHtml(settings.title||"TIAGO'S").replace(/\n/g,"<br>")}<span>${escapeHtml(settings.subtitle||"BIRTHDAY RIOT")}</span>`;
  $("intro").textContent=settings.intro||"";
  $("venueName").textContent=settings.venue||"Local a anunciar";
+
+ // Emoji dinâmico do dia
+ $("dateEmoji").textContent = dayEmoji(settings.date);
+
  $("dateText").textContent=settings.date?new Date(settings.date+"T12:00:00").toLocaleDateString("pt-PT",{weekday:"long",day:"numeric",month:"long",year:"numeric"}):"Data a anunciar";
  $("timeText").textContent=settings.time?"A partir das "+settings.time:"Horário a anunciar";
  $("addressText").textContent=settings.address||"Morada a confirmar pelo organizador.";
@@ -251,38 +281,58 @@ function applySettings(){
  $("genres").innerHTML=genres.map(s=>`<span class="pill">${escapeHtml(s)}</span>`).join("");
  renderVideo();
  updateWhatsApp();
- document.documentElement.style.setProperty("--pink",get("riotPink","#ff3e9d"));
- document.documentElement.style.setProperty("--lime",get("riotLime","#d8ff3e"));
- document.documentElement.style.setProperty("--bg",get("riotBg","#100d19"));
- document.querySelectorAll(".hero h1").forEach(el=>{el.style.fontFamily=get("riotFont","Impact,'Arial Black',sans-serif");el.style.fontSize=get("riotSize","clamp(2.6rem,11vw,8.5rem)")});
+ document.documentElement.style.setProperty("--pink",styleSettings.pink||DEFAULTS_STYLE.pink);
+ document.documentElement.style.setProperty("--lime",styleSettings.lime||DEFAULTS_STYLE.lime);
+ document.documentElement.style.setProperty("--bg",styleSettings.bg||DEFAULTS_STYLE.bg);
+ document.querySelectorAll(".hero h1").forEach(el=>{el.style.fontFamily=styleSettings.font||DEFAULTS_STYLE.font;el.style.fontSize=styleSettings.size||DEFAULTS_STYLE.size});
 }
 
-/* ---------- Admin ---------- */
+/* ============ SCROLL PARA O TOPO ============ */
+function scrollTopNow(){
+  // Se a URL tiver #algumacoisa, removemos sem recarregar
+  if(location.hash){
+    try { history.replaceState(null, "", location.pathname + location.search); } catch(e){}
+  }
+  window.scrollTo(0,0);
+}
+
+/* ============ FILL ADMIN ============ */
 function fillAdmin(){
  $("aTitle").value=settings.title;$("aSubtitle").value=settings.subtitle;$("aIntro").value=settings.intro;$("aVenue").value=settings.venue;$("aDate").value=settings.date;$("aTime").value=settings.time;$("aAddress").value=settings.address;$("aMap").value=settings.map;$("aVideo").value=settings.video;$("aGenres").value=settings.genres;
- $("aPink").value=get("riotPink","#ff3e9d");$("aLime").value=get("riotLime","#d8ff3e");$("aBg").value=get("riotBg","#100d19");$("aFont").value=get("riotFont","Impact,'Arial Black',sans-serif");$("aSize").value=get("riotSize","clamp(2.6rem,11vw,8.5rem)");
+ $("aPink").value=styleSettings.pink||DEFAULTS_STYLE.pink;
+ $("aLime").value=styleSettings.lime||DEFAULTS_STYLE.lime;
+ $("aBg").value=styleSettings.bg||DEFAULTS_STYLE.bg;
+ $("aFont").value=styleSettings.font||DEFAULTS_STYLE.font;
+ $("aSize").value=styleSettings.size||DEFAULTS_STYLE.size;
  renderGuests();
 }
+
+/* ============ LISTA LOCAL (fallback) ============ */
 function renderGuests(){
  $("guestCount").textContent=`(${guests.length})`;
- $("guestList").innerHTML=guests.length?guests.map((g,i)=>`<div class="guest"><div><b>${escapeHtml(g.name)}</b><small>${escapeHtml(g.date)}${g.note?" · "+escapeHtml(g.note):""}</small></div><button data-delete="${i}" type="button" aria-label="Excluir confirmação">Excluir</button></div>`).join(""):'<p class="small">Ainda não há confirmações. Espalha o convite! 🤘</p>';
+ $("guestList").innerHTML=guests.length?guests.map((g,i)=>`<div class="guest"><div><b>${escapeHtml(g.name)}</b><small>${escapeHtml(g.date)}${g.note?" · "+escapeHtml(g.note):""}</small></div><button data-delete="${i}" type="button">Excluir</button></div>`).join(""):'<p class="small">Ainda não há confirmações. Espalha o convite! 🤘</p>';
  $("guestList").querySelectorAll("[data-delete]").forEach(b=>b.addEventListener("click",()=>{const i=Number(b.dataset.delete);if(confirm("Excluir esta confirmação?")){guests.splice(i,1);saveLocal();renderGuests()}}));
 }
+
+/* ============ RSVP LOCAL (fallback) ============ */
 $("rsvpForm").addEventListener("submit",e=>{
   if(window.__firebaseOnline) return;
   e.preventDefault();
   const name=$("guestName").value.trim();if(!name)return;
   const existing=guests.find(g=>g.name.toLocaleLowerCase("pt-PT")===name.toLocaleLowerCase("pt-PT"));
-  if(existing){$("rsvpNotice").textContent="Este nome já está confirmado. Se precisares de corrigir algo, fala com o organizador.";return}
+  if(existing){$("rsvpNotice").textContent="Este nome já está confirmado.";return}
   guests.push({name,note:$("guestNote").value.trim(),date:new Date().toLocaleString("pt-PT")});
-  saveLocal();$("rsvpNotice").textContent="YES! Presença confirmada. Prepara a tua voz e o teu melhor look rock 🤘";$("rsvpForm").reset();
+  saveLocal();$("rsvpNotice").textContent="YES! Presença confirmada. Prepara a voz 🤘";$("rsvpForm").reset();
 });
+
+/* ============ ABRIR / FECHAR ADMIN ============ */
 const adminModalEl = $("adminModal");
 function openAdmin(){
   adminModalEl.classList.remove("hidden");
   adminModalEl.style.display = "flex";
   adminModalEl.setAttribute("aria-hidden","false");
   document.body.style.overflow = "hidden";
+  adminModalEl.scrollTop = 0;
   $("loginNotice").textContent = "";
   if(!$("adminArea").classList.contains("hidden")) fillAdmin();
 }
@@ -296,6 +346,7 @@ $("openAdmin").addEventListener("click", openAdmin);
 $("closeAdmin").addEventListener("click", closeAdmin);
 adminModalEl.addEventListener("click", e => { if(e.target === adminModalEl) closeAdmin(); });
 document.addEventListener("keydown", e => { if(e.key === "Escape" && !adminModalEl.classList.contains("hidden")) closeAdmin(); });
+
 document.querySelectorAll(".tab").forEach(btn=>btn.addEventListener("click",()=>{
   document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t===btn));
   document.querySelectorAll(".admin-content").forEach(c=>c.classList.add("hidden"));
@@ -303,41 +354,51 @@ document.querySelectorAll(".tab").forEach(btn=>btn.addEventListener("click",()=>
   if(panel) panel.classList.remove("hidden");
   if(btn.dataset.tab==="guests" && !window.__firebaseOnline) renderGuests();
 }));
+
+/* ============ BOTÃO "EU VOU!" (scroll suave sem hash) ============ */
+$("cta").addEventListener("click", (e)=>{
+  e.preventDefault();
+  document.getElementById("rsvp").scrollIntoView({behavior:"smooth", block:"start"});
+});
+
+/* ============ BOTÕES LOCAIS (fallback) ============ */
 $("saveDetails").addEventListener("click",()=>{
   settings={title:$("aTitle").value.trim(),subtitle:$("aSubtitle").value.trim(),intro:$("aIntro").value.trim(),venue:$("aVenue").value.trim(),date:$("aDate").value,time:$("aTime").value,address:$("aAddress").value.trim(),map:$("aMap").value.trim(),video:$("aVideo").value.trim(),genres:$("aGenres").value.trim()};
-  saveLocal();applySettings();alert("Convite atualizado neste navegador.");
+  saveLocal();applySettings();alert("Guardado localmente. (Sem ligação ao Firebase.)");
 });
 $("resetDetails").addEventListener("click",()=>{if(confirm("Repor os textos e links iniciais?")){settings={...DEFAULTS};saveLocal();fillAdmin();applySettings()}});
 $("saveStyle").addEventListener("click",()=>{
-  localStorage.setItem("riotPink",$("aPink").value);
-  localStorage.setItem("riotLime",$("aLime").value);
-  localStorage.setItem("riotBg",$("aBg").value);
-  localStorage.setItem("riotFont",$("aFont").value);
-  localStorage.setItem("riotSize",$("aSize").value);
-  applySettings();alert("Design aplicado.");
+  styleSettings={pink:$("aPink").value,lime:$("aLime").value,bg:$("aBg").value,font:$("aFont").value,size:$("aSize").value};
+  saveLocal();applySettings();alert("Design guardado localmente. (Sem ligação ao Firebase.)");
 });
 $("changePin").addEventListener("click",()=>{
   const a=$("newPin").value,b=$("newPin2").value;
-  if(a.length<4||a!==b){alert("Confirma que os dois PINs coincidem e têm pelo menos 4 caracteres.");return}
-  pin=a;saveLocal();$("newPin").value=$("newPin2").value="";alert("PIN alterado neste navegador.");
+  if(a.length<4||a!==b){alert("PINs não coincidem ou têm menos de 4 caracteres.");return}
+  pin=a;saveLocal();$("newPin").value=$("newPin2").value="";alert("PIN local alterado.");
 });
 $("exportGuests").addEventListener("click",()=>{
   const list = window.__onlineRsvps || guests;
-  const csv=[["Nome","Mensagem","Data de confirmação"],...list.map(g=>[g.name,g.note,g.date])].map(row=>row.map(v=>'"'+String(v||"").replace(/"/g,'""')+'"').join(";")).join("\r\n");
+  const csv=[["Nome","Mensagem","Data"],...list.map(g=>[g.name,g.note,g.date])].map(r=>r.map(v=>'"'+String(v||"").replace(/"/g,'""')+'"').join(";")).join("\r\n");
   const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8;"});
   const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="confirmacoes-tiago-martins.csv";a.click();URL.revokeObjectURL(url);
 });
 $("clearGuests").addEventListener("click",()=>{
   if(window.__firebaseOnline) return;
-  if(confirm("Tens a certeza que queres excluir TODAS as confirmações? Esta ação não pode ser desfeita.")){guests=[];saveLocal();renderGuests()}
+  if(confirm("Excluir TODAS as confirmações locais?")){guests=[];saveLocal();renderGuests()}
 });
+
+/* ============ INICIALIZAÇÃO ============ */
+scrollTopNow();
 applySettings();
+window.addEventListener("load", scrollTopNow);
+// Se por acaso o browser restaurar a posição de scroll, forçamos topo após um tick.
+setTimeout(scrollTopNow, 50);
 </script>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
-import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
+import { getDatabase, ref, push, onValue, set, remove } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAMAt5Ouy3C0q8ooyKce3Upfa6ZSIbfI_U",
@@ -361,7 +422,47 @@ const loginBox = document.getElementById("loginBox");
 const adminArea = document.getElementById("adminArea");
 const loginButton = document.getElementById("loginBtn");
 const logoutButton = document.getElementById("logoutBtn");
+const syncBadge = document.getElementById("syncBadge");
 
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+
+/* ========== LER CONFIGURAÇÕES PÚBLICAS (todos os utilizadores) ========== */
+/* Estrutura no Firebase:
+   /config/details  -> { title, subtitle, intro, venue, date, time, address, map, video, genres, updatedAt }
+   /config/style    -> { pink, lime, bg, font, size, updatedAt }
+*/
+const detailsRef = ref(db, "config/details");
+const styleRef   = ref(db, "config/style");
+
+onValue(detailsRef, (snap) => {
+  const val = snap.val();
+  if (val && Object.keys(val).length) {
+    // Junta com defaults, para garantir que campos em falta não quebram o site
+    const {updatedAt, ...data} = val;
+    settings = { ...settings, ...data };
+    localStorage.setItem("riotSettings", JSON.stringify(settings));
+    applySettings();
+    // Se o admin estiver aberto, atualiza os campos do formulário
+    if(!document.getElementById("adminArea").classList.contains("hidden")) fillAdmin();
+  }
+}, (err) => {
+  console.warn("Sem acesso a config/details:", err.code);
+});
+
+onValue(styleRef, (snap) => {
+  const val = snap.val();
+  if (val && Object.keys(val).length) {
+    const {updatedAt, ...data} = val;
+    styleSettings = { ...styleSettings, ...data };
+    localStorage.setItem("riotStyle", JSON.stringify(styleSettings));
+    applySettings();
+    if(!document.getElementById("adminArea").classList.contains("hidden")) fillAdmin();
+  }
+}, (err) => {
+  console.warn("Sem acesso a config/style:", err.code);
+});
+
+/* ========== RSVP ONLINE ========== */
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   event.stopImmediatePropagation();
@@ -371,14 +472,14 @@ form.addEventListener("submit", async (event) => {
   notice.textContent = "A enviar confirmação…";
   try {
     await push(ref(db, "rsvps"), { name, note, date: new Date().toLocaleString("pt-PT"), createdAt: Date.now() });
-    notice.textContent = "YES! Presença confirmada online. Prepara a tua voz e o teu melhor look rock 🤘";
+    notice.textContent = "YES! Presença confirmada online. Prepara a voz 🤘";
     form.reset();
   } catch (error) {
-    console.error(error);
     notice.textContent = "Não foi possível guardar online. Código: " + error.code;
   }
 }, true);
 
+/* ========== LOGIN ========== */
 loginButton.addEventListener("click", async () => {
   const email = document.getElementById("adminEmail").value.trim();
   const password = document.getElementById("adminPassword").value;
@@ -393,15 +494,19 @@ loginButton.addEventListener("click", async () => {
 });
 logoutButton.addEventListener("click", () => signOut(auth));
 
-let stopListening = null;
+/* ========== AO AUTENTICAR: substituir botões de guardar por versões que escrevem no Firebase ========== */
+let stopListeningGuests = null;
 onAuthStateChanged(auth, (user) => {
   if (user) {
     loginBox.classList.add("hidden");
     adminArea.classList.remove("hidden");
     logoutButton.classList.remove("hidden");
     loginNotice.textContent = "Sessão iniciada como " + user.email;
-    if (stopListening) stopListening();
-    stopListening = onValue(ref(db, "rsvps"), (snapshot) => {
+    setSyncBadge("ok", "Sincronização: online como " + user.email);
+
+    // Ouvir confirmações em tempo real
+    if (stopListeningGuests) stopListeningGuests();
+    stopListeningGuests = onValue(ref(db, "rsvps"), (snapshot) => {
       const liveRsvps = snapshot.val() || {};
       const list = Object.entries(liveRsvps).map(([id, g]) => ({ id, name: g.name || "(sem nome)", note: g.note || "", date: g.date || "" }));
       document.getElementById("guestCount").textContent = `(${list.length})`;
@@ -415,28 +520,81 @@ onAuthStateChanged(auth, (user) => {
         }
       }));
       window.__onlineRsvps = list;
-    }, (error) => { loginNotice.textContent = "Erro ao ler confirmações: " + error.code; });
+    }, (error) => {
+      loginNotice.textContent = "Erro ao ler confirmações: " + error.code;
+      setSyncBadge("err", "Sincronização: erro " + error.code);
+    });
+
+    // Guardar detalhes no Firebase (substitui o handler local)
+    document.getElementById("saveDetails").onclick = async () => {
+      const payload = {
+        title: document.getElementById("aTitle").value.trim(),
+        subtitle: document.getElementById("aSubtitle").value.trim(),
+        intro: document.getElementById("aIntro").value.trim(),
+        venue: document.getElementById("aVenue").value.trim(),
+        date: document.getElementById("aDate").value,
+        time: document.getElementById("aTime").value,
+        address: document.getElementById("aAddress").value.trim(),
+        map: document.getElementById("aMap").value.trim(),
+        video: document.getElementById("aVideo").value.trim(),
+        genres: document.getElementById("aGenres").value.trim(),
+        updatedAt: Date.now()
+      };
+      try {
+        setSyncBadge("", "Sincronização: a publicar…");
+        await set(detailsRef, payload);
+        setSyncBadge("ok", "Sincronização: publicado para todos ✅");
+      } catch (error) {
+        setSyncBadge("err", "Falha ao publicar: " + error.code);
+        alert("Não foi possível publicar no Firebase: " + error.code);
+      }
+    };
+
+    // Guardar estilo no Firebase
+    document.getElementById("saveStyle").onclick = async () => {
+      const payload = {
+        pink: document.getElementById("aPink").value,
+        lime: document.getElementById("aLime").value,
+        bg: document.getElementById("aBg").value,
+        font: document.getElementById("aFont").value,
+        size: document.getElementById("aSize").value,
+        updatedAt: Date.now()
+      };
+      try {
+        setSyncBadge("", "Sincronização: a publicar design…");
+        await set(styleRef, payload);
+        setSyncBadge("ok", "Sincronização: design publicado ✅");
+      } catch (error) {
+        setSyncBadge("err", "Falha ao publicar design: " + error.code);
+      }
+    };
+
   } else {
-    if (stopListening) { stopListening(); stopListening = null; }
+    if (stopListeningGuests) { stopListeningGuests(); stopListeningGuests = null; }
     loginBox.classList.remove("hidden");
     adminArea.classList.add("hidden");
     logoutButton.classList.add("hidden");
   }
 });
 
+function setSyncBadge(cls, text){
+  if(!syncBadge) return;
+  syncBadge.className = "sync-badge" + (cls ? " " + cls : "");
+  syncBadge.textContent = text;
+}
+
+/* ========== EXPORT CSV ONLINE ========== */
 document.getElementById("exportGuests").onclick = () => {
   const list = window.__onlineRsvps || [];
-  const csv = [["Nome","Mensagem","Data de confirmação"], ...list.map(g => [g.name,g.note,g.date])].map(row => row.map(v => '"' + String(v || "").replace(/"/g,'""') + '"').join(";")).join("\r\n");
+  const csv = [["Nome","Mensagem","Data"], ...list.map(g => [g.name,g.note,g.date])].map(row => row.map(v => '"' + String(v || "").replace(/"/g,'""') + '"').join(";")).join("\r\n");
   const blob = new Blob(["\ufeff" + csv], {type:"text/csv;charset=utf-8;"});
   const url = URL.createObjectURL(blob); const a = document.createElement("a"); a.href = url; a.download = "confirmacoes-tiago-martins.csv"; a.click(); URL.revokeObjectURL(url);
 };
 document.getElementById("clearGuests").onclick = async () => {
-  if (!confirm("Tens a certeza que queres excluir TODAS as confirmações online? Esta ação não pode ser desfeita.")) return;
+  if (!confirm("Excluir TODAS as confirmações online? Ação irreversível.")) return;
   try { await remove(ref(db, "rsvps")); }
   catch (error) { alert("Não foi possível excluir: " + error.code); }
 };
-
-function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 </script>
 
 </body>
