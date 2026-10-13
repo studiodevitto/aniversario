@@ -50,6 +50,27 @@ h1 span{display:block;color:var(--lime);text-shadow:4px 4px 0 var(--pink);font-s
 .card h3{margin:0 0 10px;font-size:clamp(1rem,3.2vw,1.1rem)}
 .card p{color:var(--muted);line-height:1.6;margin:8px 0;font-size:clamp(.9rem,2.6vw,1rem)}
 .big-icon{font-size:1.7rem;margin-bottom:12px;line-height:1}
+
+/* ===== DATA EM FORMATO NUMÉRICO COM TIPOGRAFIA DISPLAY ===== */
+.event-date{
+  font-family: Impact,'Arial Black',sans-serif;
+  font-size: clamp(2.4rem, 9vw, 4.2rem);
+  letter-spacing: .04em;
+  line-height: 1;
+  color: var(--lime);
+  text-shadow: 3px 3px 0 var(--pink), -2px -2px 0 var(--purple);
+  margin: 4px 0 10px;
+  word-break: break-word;
+}
+.event-date.pending{
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: clamp(1rem,3.6vw,1.2rem);
+  color: var(--muted);
+  text-shadow: none;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
 .map-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
 .map-links a,.secondary{color:var(--ink);border:1px solid #ffffff45;border-radius:9px;padding:10px 12px;text-decoration:none;font-size:clamp(.78rem,2.4vw,.85rem);font-weight:700;flex:1 1 auto;text-align:center;min-width:0}
 .video-wrap{aspect-ratio:9/16;max-height:520px;background:#0b0910;border-radius:12px;overflow:hidden;border:1px solid var(--line);position:relative;width:100%}
@@ -88,6 +109,8 @@ footer{text-align:center;color:#9b8eae;padding:28px 16px 90px;font-size:.78rem;l
 .sync-badge{display:inline-block;font-size:.72rem;padding:4px 9px;border-radius:999px;background:#2a2038;border:1px solid var(--line);color:var(--muted);margin-top:8px}
 .sync-badge.ok{background:#1d3a1d;border-color:#3a6b3a;color:#b6ffb6}
 .sync-badge.err{background:#3a1d1d;border-color:#6b3a3a;color:#ffb6b6}
+
+/* ===== MOBILE: garante que o painel de convidados é totalmente visível ===== */
 @media(max-width:650px){
   .grid,.form-grid{grid-template-columns:1fr}
   .hero{padding-top:36px}
@@ -102,11 +125,20 @@ footer{text-align:center;color:#9b8eae;padding:28px 16px 90px;font-size:.78rem;l
   .admin-actions button{flex:1 1 auto}
   .tab{flex:1 1 45%}
   h1{letter-spacing:-.02em}
+
+  /* Painel admin: usa quase todo o ecrã, com scroll interno do próprio modal */
+  .admin-panel{padding:14px;border-radius:14px;margin:6px auto}
+  .admin-content{padding-top:12px}
+  /* Os convidados ficam com botão full-width e texto que não estoura */
+  .guest{flex-direction:column;align-items:stretch}
+  .guest button{width:100%}
+  .guest small{font-size:.8rem}
 }
 @media(max-width:380px){
   .brand{font-size:.62rem;letter-spacing:.08em}
   .sticker{font-size:.6rem;padding:7px 11px}
   .whatsapp-float span{display:none}
+  .event-date{font-size:clamp(2rem,10vw,3rem)}
 }
 </style>
 </head>
@@ -128,9 +160,8 @@ footer{text-align:center;color:#9b8eae;padding:28px 16px 90px;font-size:.78rem;l
       <h2 class="section-title">THE <em>LINE-UP</em></h2>
       <div class="grid">
         <article class="card">
-          <div class="big-icon" id="dateEmoji">📜</div>
           <h3>Dia de fazer história</h3>
-          <p id="dateText">Data a anunciar</p>
+          <div class="event-date pending" id="dateText">Data a anunciar</div>
           <p id="timeText">Horário a anunciar</p>
         </article>
         <article class="card"><div class="big-icon">🍽️</div><h3 id="venueName">Rodízio e Pratos</h3><p id="addressText">Morada a confirmar pelo organizador.</p><div class="map-links"><a id="googleLink" href="https://maps.app.goo.gl/8jsLvzd7jyBQTscE9?g_st=ic" target="_blank" rel="noopener">Google Maps ↗</a><a id="wazeLink" href="https://waze.com/ul" target="_blank" rel="noopener">Waze ↗</a><a id="appleLink" href="https://maps.apple.com/" target="_blank" rel="noopener">Apple Maps ↗</a></div></article>
@@ -187,7 +218,11 @@ footer{text-align:center;color:#9b8eae;padding:28px 16px 90px;font-size:.78rem;l
     </div>
     <div class="admin-actions"><button class="save" id="saveStyle" type="button">Aplicar design para todos</button></div>
    </div>
-   <div class="admin-content hidden" id="tab-guests"><p class="small">As confirmações online são guardadas no Firebase e ficam disponíveis no painel autenticado.</p><div class="admin-actions"><button id="exportGuests" type="button">Exportar lista CSV</button><button id="clearGuests" type="button">Excluir todas as confirmações</button></div><div class="guest-list" id="guestList"></div></div>
+   <div class="admin-content hidden" id="tab-guests">
+     <p class="small">As confirmações online são guardadas no Firebase e ficam disponíveis em qualquer dispositivo com acesso ao painel.</p>
+     <div class="admin-actions"><button id="exportGuests" type="button">Exportar lista CSV</button><button id="clearGuests" type="button">Excluir todas as confirmações</button></div>
+     <div class="guest-list" id="guestList"></div>
+   </div>
    <div class="admin-content hidden" id="tab-security"><p class="small">PIN local (não afeta outros utilizadores; guardado só neste navegador).</p><div class="field"><label for="newPin">Novo PIN (mínimo 4 caracteres)</label><input id="newPin" type="password" minlength="4" placeholder="Novo PIN"></div><div class="field"><label for="newPin2">Repetir novo PIN</label><input id="newPin2" type="password" minlength="4" placeholder="Repetir PIN"></div><div class="admin-actions"><button class="save" id="changePin" type="button">Alterar PIN</button></div></div>
   </div>
  </div>
@@ -213,18 +248,14 @@ function saveLocal(){
 function safeUrl(s){try{const u=new URL(s);return ["https:","http:"].includes(u.protocol)?u.href:"#"}catch{return "#"}}
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 
-/* ============ EMOJI DINÂMICO DO CALENDÁRIO ============ */
-/* O emoji 📅 mostra sempre 17? Não. Os emojis de calendário NÃO mostram o dia real.
-   Para garantir que o número visível corresponde à data, usamos "keycap" digits:
-   o dia 14 -> 1️⃣4️⃣. Assim o "calendário" mostra sempre o dia correto. */
-function dayEmoji(dateStr){
-  if(!dateStr) return "📅";
-  const d = new Date(dateStr + "T12:00:00");
-  if(isNaN(d)) return "📅";
-  const day = d.getDate();
-  const keycaps = {"0":"0️⃣","1":"1️⃣","2":"2️⃣","3":"3️⃣","4":"4️⃣","5":"5️⃣","6":"6️⃣","7":"7️⃣","8":"8️⃣","9":"9️⃣"};
-  const digits = String(day).split("").map(n=>keycaps[n]).join("");
-  return "📅 " + digits;
+/* ============ DATA EM FORMATO NUMÉRICO ============ */
+function formatDate(dateStr){
+  if(!dateStr) return null;
+  const parts = String(dateStr).split("-");
+  if(parts.length !== 3) return null;
+  const [y,m,d] = parts;
+  if(!y||!m||!d) return null;
+  return `${d.padStart(2,"0")}/${m.padStart(2,"0")}/${y}`;
 }
 
 /* ============ WHATSAPP ============ */
@@ -267,10 +298,17 @@ function applySettings(){
  $("intro").textContent=settings.intro||"";
  $("venueName").textContent=settings.venue||"Local a anunciar";
 
- // Emoji dinâmico do dia
- $("dateEmoji").textContent = dayEmoji(settings.date);
+ // Data: formato numérico DD/MM/AAAA com tipografia display
+ const dateEl = $("dateText");
+ const formatted = formatDate(settings.date);
+ if(formatted){
+   dateEl.textContent = formatted;
+   dateEl.classList.remove("pending");
+ } else {
+   dateEl.textContent = "Data a anunciar";
+   dateEl.classList.add("pending");
+ }
 
- $("dateText").textContent=settings.date?new Date(settings.date+"T12:00:00").toLocaleDateString("pt-PT",{weekday:"long",day:"numeric",month:"long",year:"numeric"}):"Data a anunciar";
  $("timeText").textContent=settings.time?"A partir das "+settings.time:"Horário a anunciar";
  $("addressText").textContent=settings.address||"Morada a confirmar pelo organizador.";
  const map=safeUrl(settings.map);$("googleLink").href=map;
@@ -289,7 +327,6 @@ function applySettings(){
 
 /* ============ SCROLL PARA O TOPO ============ */
 function scrollTopNow(){
-  // Se a URL tiver #algumacoisa, removemos sem recarregar
   if(location.hash){
     try { history.replaceState(null, "", location.pathname + location.search); } catch(e){}
   }
@@ -347,12 +384,29 @@ $("closeAdmin").addEventListener("click", closeAdmin);
 adminModalEl.addEventListener("click", e => { if(e.target === adminModalEl) closeAdmin(); });
 document.addEventListener("keydown", e => { if(e.key === "Escape" && !adminModalEl.classList.contains("hidden")) closeAdmin(); });
 
+/* ============ TABS DO ADMIN ============ */
+/* Ao abrir o tab de convidados, forçamos SEMPRE um render:
+   - Se o Firebase estiver online, re-renderiza com window.__onlineRsvps
+   - Se não estiver, renderiza com o fallback local
+   Isto resolve o problema de mobile, onde o DOM por vezes não recebe o update
+   quando o painel está oculto. */
+function renderGuestsFromAny(){
+  if(window.__firebaseOnline && typeof window.__renderOnlineGuests === "function"){
+    window.__renderOnlineGuests();
+  } else {
+    renderGuests();
+  }
+}
 document.querySelectorAll(".tab").forEach(btn=>btn.addEventListener("click",()=>{
   document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t===btn));
   document.querySelectorAll(".admin-content").forEach(c=>c.classList.add("hidden"));
   const panel = $("tab-"+btn.dataset.tab);
   if(panel) panel.classList.remove("hidden");
-  if(btn.dataset.tab==="guests" && !window.__firebaseOnline) renderGuests();
+  if(btn.dataset.tab==="guests"){
+    // Força o render no próximo tick, após o painel estar visível.
+    setTimeout(renderGuestsFromAny, 0);
+    setTimeout(renderGuestsFromAny, 150);
+  }
 }));
 
 /* ============ BOTÃO "EU VOU!" (scroll suave sem hash) ============ */
@@ -391,7 +445,6 @@ $("clearGuests").addEventListener("click",()=>{
 scrollTopNow();
 applySettings();
 window.addEventListener("load", scrollTopNow);
-// Se por acaso o browser restaurar a posição de scroll, forçamos topo após um tick.
 setTimeout(scrollTopNow, 50);
 </script>
 
@@ -426,28 +479,20 @@ const syncBadge = document.getElementById("syncBadge");
 
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 
-/* ========== LER CONFIGURAÇÕES PÚBLICAS (todos os utilizadores) ========== */
-/* Estrutura no Firebase:
-   /config/details  -> { title, subtitle, intro, venue, date, time, address, map, video, genres, updatedAt }
-   /config/style    -> { pink, lime, bg, font, size, updatedAt }
-*/
+/* ========== CONFIGURAÇÕES PÚBLICAS ========== */
 const detailsRef = ref(db, "config/details");
 const styleRef   = ref(db, "config/style");
 
 onValue(detailsRef, (snap) => {
   const val = snap.val();
   if (val && Object.keys(val).length) {
-    // Junta com defaults, para garantir que campos em falta não quebram o site
     const {updatedAt, ...data} = val;
     settings = { ...settings, ...data };
     localStorage.setItem("riotSettings", JSON.stringify(settings));
     applySettings();
-    // Se o admin estiver aberto, atualiza os campos do formulário
     if(!document.getElementById("adminArea").classList.contains("hidden")) fillAdmin();
   }
-}, (err) => {
-  console.warn("Sem acesso a config/details:", err.code);
-});
+}, (err) => { console.warn("Sem acesso a config/details:", err.code); });
 
 onValue(styleRef, (snap) => {
   const val = snap.val();
@@ -458,9 +503,7 @@ onValue(styleRef, (snap) => {
     applySettings();
     if(!document.getElementById("adminArea").classList.contains("hidden")) fillAdmin();
   }
-}, (err) => {
-  console.warn("Sem acesso a config/style:", err.code);
-});
+}, (err) => { console.warn("Sem acesso a config/style:", err.code); });
 
 /* ========== RSVP ONLINE ========== */
 form.addEventListener("submit", async (event) => {
@@ -494,7 +537,27 @@ loginButton.addEventListener("click", async () => {
 });
 logoutButton.addEventListener("click", () => signOut(auth));
 
-/* ========== AO AUTENTICAR: substituir botões de guardar por versões que escrevem no Firebase ========== */
+/* ========== RENDER ONLINE DOS CONVIDADOS (função global) ========== */
+let onlineGuestsCache = [];
+function renderOnlineGuests(){
+  const list = onlineGuestsCache;
+  const guestList = document.getElementById("guestList");
+  if(!guestList) return;
+  document.getElementById("guestCount").textContent = `(${list.length})`;
+  guestList.innerHTML = list.length
+    ? list.map(g => `<div class="guest"><div><b>${escapeHtml(g.name)}</b><small>${escapeHtml(g.date)}${g.note ? " · " + escapeHtml(g.note) : ""}</small></div><button data-delete-online="${escapeHtml(g.id)}" type="button">Excluir</button></div>`).join("")
+    : '<p class="small">Ainda não há confirmações. Espalha o convite! 🤘</p>';
+  guestList.querySelectorAll("[data-delete-online]").forEach(button => button.addEventListener("click", async () => {
+    const id = button.getAttribute("data-delete-online");
+    if (confirm("Excluir esta confirmação online?")) {
+      try { await remove(ref(db, "rsvps/" + id)); }
+      catch (error) { alert("Não foi possível excluir: " + error.code); }
+    }
+  }));
+}
+window.__renderOnlineGuests = renderOnlineGuests;
+
+/* ========== AO AUTENTICAR ========== */
 let stopListeningGuests = null;
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -504,28 +567,22 @@ onAuthStateChanged(auth, (user) => {
     loginNotice.textContent = "Sessão iniciada como " + user.email;
     setSyncBadge("ok", "Sincronização: online como " + user.email);
 
-    // Ouvir confirmações em tempo real
     if (stopListeningGuests) stopListeningGuests();
     stopListeningGuests = onValue(ref(db, "rsvps"), (snapshot) => {
       const liveRsvps = snapshot.val() || {};
-      const list = Object.entries(liveRsvps).map(([id, g]) => ({ id, name: g.name || "(sem nome)", note: g.note || "", date: g.date || "" }));
-      document.getElementById("guestCount").textContent = `(${list.length})`;
-      const guestList = document.getElementById("guestList");
-      guestList.innerHTML = list.length ? list.map(g => `<div class="guest"><div><b>${escapeHtml(g.name)}</b><small>${escapeHtml(g.date)}${g.note ? " · " + escapeHtml(g.note) : ""}</small></div><button data-delete-online="${escapeHtml(g.id)}" type="button">Excluir</button></div>`).join("") : '<p class="small">Ainda não há confirmações. Espalha o convite! 🤘</p>';
-      guestList.querySelectorAll("[data-delete-online]").forEach(button => button.addEventListener("click", async () => {
-        const id = button.getAttribute("data-delete-online");
-        if (confirm("Excluir esta confirmação online?")) {
-          try { await remove(ref(db, "rsvps/" + id)); }
-          catch (error) { alert("Não foi possível excluir: " + error.code); }
-        }
+      onlineGuestsCache = Object.entries(liveRsvps).map(([id, g]) => ({
+        id,
+        name: g.name || "(sem nome)",
+        note: g.note || "",
+        date: g.date || ""
       }));
-      window.__onlineRsvps = list;
+      window.__onlineRsvps = onlineGuestsCache;
+      renderOnlineGuests();
     }, (error) => {
       loginNotice.textContent = "Erro ao ler confirmações: " + error.code;
       setSyncBadge("err", "Sincronização: erro " + error.code);
     });
 
-    // Guardar detalhes no Firebase (substitui o handler local)
     document.getElementById("saveDetails").onclick = async () => {
       const payload = {
         title: document.getElementById("aTitle").value.trim(),
@@ -550,7 +607,6 @@ onAuthStateChanged(auth, (user) => {
       }
     };
 
-    // Guardar estilo no Firebase
     document.getElementById("saveStyle").onclick = async () => {
       const payload = {
         pink: document.getElementById("aPink").value,
@@ -583,7 +639,7 @@ function setSyncBadge(cls, text){
   syncBadge.textContent = text;
 }
 
-/* ========== EXPORT CSV ONLINE ========== */
+/* ========== EXPORT CSV / LIMPAR ONLINE ========== */
 document.getElementById("exportGuests").onclick = () => {
   const list = window.__onlineRsvps || [];
   const csv = [["Nome","Mensagem","Data"], ...list.map(g => [g.name,g.note,g.date])].map(row => row.map(v => '"' + String(v || "").replace(/"/g,'""') + '"').join(";")).join("\r\n");
