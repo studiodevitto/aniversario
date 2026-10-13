@@ -202,6 +202,7 @@ footer{text-align:center;color:#9b8eae;padding:28px 16px 90px;font-size:.78rem;l
      <div class="field full"><label for="aAddress">Morada completa</label><input id="aAddress" placeholder="Rua, número, código postal, localidade"></div>
      <div class="field full"><label for="aMap">Link da localização (Google Maps)</label><input id="aMap" value="https://maps.app.goo.gl/8jsLvzd7jyBQTscE9?g_st=ic"></div>
      <div class="field full"><label for="aVideo">Link do Reel/vídeo do Instagram</label><input id="aVideo" value="https://www.instagram.com/reel/DbtW4MZNMdA/?srtk=YTFqMnNiMnlnc29u"></div>
+      <div class="field full"><label for="aDirectVideo">Link direto do vídeo MP4 (alternativa recomendada)</label><input id="aDirectVideo" type="url" placeholder="https://teusite.pt/videos/local.mp4"><p class="small">Opcional. Se preenchido, o site usa o leitor nativo e deixa de depender do player do Instagram. O link tem de apontar para um ficheiro de vídeo acessível publicamente, não para a página do Reel.</p></div>
      <div class="field full"><label for="aGenres">Etiquetas musicais (separadas por vírgula)</label><input id="aGenres" value="POP PUNK, POP ROCK, ALT VIBES, Y2K FOREVER"></div>
     </div>
     <div class="admin-actions"><button class="save" id="saveDetails" type="button">Guardar e publicar para todos</button><button id="resetDetails" type="button">Repor texto inicial</button></div>
@@ -229,7 +230,7 @@ footer{text-align:center;color:#9b8eae;padding:28px 16px 90px;font-size:.78rem;l
 </div>
 <script>
 /* ============ NÚCLEO LOCAL (fallback e render) ============ */
-const DEFAULTS={title:"TIAGO'S",subtitle:"LEVEL 38 UNLOCKED",intro:"Guitarras altas, refrões que toda a gente sabe e energia de 2000s. Bora celebrar em modo rockstar — aparece para fazer barulho!",venue:"Rodízio e Pratos",date:"",time:"",address:"",map:"https://maps.app.goo.gl/8jsLvzd7jyBQTscE9?g_st=ic",video:"https://www.instagram.com/reel/DbtW4MZNMdA/?srtk=YTFqMnNiMnlnc29u",genres:"POP PUNK, POP ROCK, ALT VIBES, Y2K FOREVER"};
+const DEFAULTS={title:"TIAGO'S",subtitle:"LEVEL 38 UNLOCKED",intro:"Guitarras altas, refrões que toda a gente sabe e energia de 2000s. Bora celebrar em modo rockstar — aparece para fazer barulho!",venue:"Rodízio e Pratos",date:"",time:"",address:"",map:"https://maps.app.goo.gl/8jsLvzd7jyBQTscE9?g_st=ic",video:"https://www.instagram.com/reel/DbtW4MZNMdA/?srtk=YTFqMnNiMnlnc29u",genres:"POP PUNK, POP ROCK, ALT VIBES, Y2K FOREVER",directVideo:""};
 const DEFAULTS_STYLE={pink:"#ff3e9d",lime:"#d8ff3e",bg:"#100d19",font:"Impact,'Arial Black',sans-serif",size:"clamp(2.6rem,11vw,8.5rem)"};
 const SHARE_URL = "https://abre.ai/aniversario-do-tiago";
 const $=id=>document.getElementById(id);
@@ -269,6 +270,27 @@ function updateWhatsApp(){
 function renderVideo(){
   const box = $("videoBox");
   const raw = safeUrl(settings.video || "");
+  const direct = safeUrl(settings.directVideo || "");
+
+  // Prioridade ao ficheiro MP4: reprodução nativa, sem depender do embed do Instagram.
+  if (direct !== "#") {
+    box.innerHTML = "";
+    const video = document.createElement("video");
+    video.controls = true;
+    video.playsInline = true;
+    video.preload = "metadata";
+    video.setAttribute("aria-label", "Vídeo do local da festa");
+    video.style.width = "100%";
+    video.style.height = "100%";
+    video.style.objectFit = "contain";
+    video.src = direct;
+    video.addEventListener("error", () => {
+      box.innerHTML = '<div class="video-fallback">Não foi possível reproduzir o ficheiro de vídeo. Confirma se o link é um MP4 público e acessível.<a href="' + direct + '" target="_blank" rel="noopener">Abrir ficheiro de vídeo ↗</a>' +
+        (raw !== "#" ? '<a href="' + raw + '" target="_blank" rel="noopener">Tentar no Instagram ↗</a>' : '') + '</div>';
+    }, { once: true });
+    box.replaceChildren(video);
+    return;
+  }
   const reelMatch = raw.match(/instagram\.com\/(?:reel|reels|p|tv)\/([A-Za-z0-9_-]+)/i);
   if(!reelMatch){
     box.innerHTML = '<div class="video-fallback">Não foi possível reconhecer o link do Reel.<a href="'+raw+'" target="_blank" rel="noopener">Abrir no Instagram ↗</a></div>';
@@ -283,13 +305,14 @@ function renderVideo(){
   iframe.setAttribute("allowfullscreen", "true");
   iframe.setAttribute("referrerpolicy", "no-referrer-when-downgrade");
   iframe.setAttribute("scrolling", "no");
-  box.replaceChildren(iframe);
-  const timer = setTimeout(()=>{
-    if(!iframe.contentWindow){
-      box.innerHTML = '<div class="video-fallback">O Instagram bloqueou a reprodução dentro do site neste navegador.<a href="'+raw+'" target="_blank" rel="noopener">Ver o Reel no Instagram ↗</a></div>';
-    }
-  }, 8000);
-  iframe.addEventListener("load", ()=>clearTimeout(timer));
+  // Não é possível detetar de forma fiável um bloqueio dentro de um iframe de outro domínio.
+  // Mantemos um caminho claro para o Instagram sem afirmar incorretamente que o embed falhou.
+  const hint = document.createElement("div");
+  hint.className = "video-fallback";
+  hint.style.height = "auto";
+  hint.style.minHeight = "0";
+  hint.innerHTML = 'Se o vídeo não iniciar, o Instagram pode estar a limitar a reprodução incorporada. <a href="' + raw + '" target="_blank" rel="noopener">Abrir o Reel no Instagram ↗</a><span>Para reprodução fiável dentro desta página, adiciona um link direto para o ficheiro MP4 no painel Admin.</span>';
+  box.replaceChildren(iframe, hint);
 }
 
 /* ============ APLICAR SETTINGS AO DOM ============ */
@@ -335,7 +358,7 @@ function scrollTopNow(){
 
 /* ============ FILL ADMIN ============ */
 function fillAdmin(){
- $("aTitle").value=settings.title;$("aSubtitle").value=settings.subtitle;$("aIntro").value=settings.intro;$("aVenue").value=settings.venue;$("aDate").value=settings.date;$("aTime").value=settings.time;$("aAddress").value=settings.address;$("aMap").value=settings.map;$("aVideo").value=settings.video;$("aGenres").value=settings.genres;
+ $("aTitle").value=settings.title;$("aSubtitle").value=settings.subtitle;$("aIntro").value=settings.intro;$("aVenue").value=settings.venue;$("aDate").value=settings.date;$("aTime").value=settings.time;$("aAddress").value=settings.address;$("aMap").value=settings.map;$("aVideo").value=settings.video;$("aDirectVideo").value=settings.directVideo||"";$("aGenres").value=settings.genres;
  $("aPink").value=styleSettings.pink||DEFAULTS_STYLE.pink;
  $("aLime").value=styleSettings.lime||DEFAULTS_STYLE.lime;
  $("aBg").value=styleSettings.bg||DEFAULTS_STYLE.bg;
@@ -417,7 +440,7 @@ $("cta").addEventListener("click", (e)=>{
 
 /* ============ BOTÕES LOCAIS (fallback) ============ */
 $("saveDetails").addEventListener("click",()=>{
-  settings={title:$("aTitle").value.trim(),subtitle:$("aSubtitle").value.trim(),intro:$("aIntro").value.trim(),venue:$("aVenue").value.trim(),date:$("aDate").value,time:$("aTime").value,address:$("aAddress").value.trim(),map:$("aMap").value.trim(),video:$("aVideo").value.trim(),genres:$("aGenres").value.trim()};
+  settings={title:$("aTitle").value.trim(),subtitle:$("aSubtitle").value.trim(),intro:$("aIntro").value.trim(),venue:$("aVenue").value.trim(),date:$("aDate").value,time:$("aTime").value,address:$("aAddress").value.trim(),map:$("aMap").value.trim(),video:$("aVideo").value.trim(),directVideo:$("aDirectVideo").value.trim(),genres:$("aGenres").value.trim()};
   saveLocal();applySettings();alert("Guardado localmente. (Sem ligação ao Firebase.)");
 });
 $("resetDetails").addEventListener("click",()=>{if(confirm("Repor os textos e links iniciais?")){settings={...DEFAULTS};saveLocal();fillAdmin();applySettings()}});
@@ -594,6 +617,7 @@ onAuthStateChanged(auth, (user) => {
         address: document.getElementById("aAddress").value.trim(),
         map: document.getElementById("aMap").value.trim(),
         video: document.getElementById("aVideo").value.trim(),
+        directVideo: document.getElementById("aDirectVideo").value.trim(),
         genres: document.getElementById("aGenres").value.trim(),
         updatedAt: Date.now()
       };
