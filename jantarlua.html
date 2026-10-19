@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#0f1b2d">
+<title>Jantar de Aniversário</title>
+
+<!-- Open Graph para WhatsApp -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jantar de Aniversário 🍷">
+<meta property="og:description" content="Uma noite especial para celebrar contigo. Confirma a tua presença!">
+<meta property="og:image" content="">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Convite para o jantar de aniversário">
+<meta property="og:url" content="">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="">
+
+<style>
+:root{--bg:#0f1b2d;--gold:#d4a24e;--red:#a8434e;--green:#2a7a6a;--purple:#4a5a9e;--text:#f5f0e6;--muted:#c8c2b8;--panel:#1a2840;--line:#3a4a6a}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{touch-action:pan-x pan-y;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
+button,input,textarea,select{font:inherit}
+button,a{touch-action:manipulation;cursor:pointer}
+#app{min-height:100vh;background:radial-gradient(ellipse at 8% 0%,#1e3a5f,transparent 34%),radial-gradient(ellipse at 92% 24%,#3a2a4a,transparent 30%),linear-gradient(145deg,#0f1b2d,#162338 55%,#0a1520)}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:16px clamp(16px,5vw,60px);border-bottom:1px solid #ffffff20}
+.brand{font-size:.8rem;font-weight:1000;letter-spacing:.15em}
+.brand span{color:var(--gold)}
+.admin-open{border:1px solid #ffffff66;background:#1a2840;color:white;padding:10px 14px;border-radius:999px;font-weight:800}
+.hero{text-align:center;padding:60px 20px 45px;max-width:1000px;margin:auto}
+.tag{display:inline-block;background:var(--gold);color:#0f1b2d;padding:8px 14px;font-size:.75rem;font-weight:1000;letter-spacing:.12em;transform:rotate(-2deg);box-shadow:4px 4px 0 var(--red)}
+h1{font-family:Impact,'Arial Black',sans-serif;text-transform:uppercase;font-size:clamp(4rem,14vw,9rem);line-height:.85;margin:28px 0;text-shadow:4px 4px 0 var(--purple)}
+.luna{display:block;color:var(--gold);animation:shine 2.5s ease-in-out infinite alternate;text-shadow:0 0 5px #ffe4a8,0 0 15px var(--gold),0 0 28px #d4a24e,4px 4px 0 var(--red)}
+@keyframes shine{to{filter:brightness(1.4);text-shadow:0 0 8px white,0 0 20px var(--gold),0 0 38px #d4a24e,4px 4px 0 var(--red)}}
+.hero-sub{font-size:clamp(1.2rem,4vw,2rem);font-weight:1000;letter-spacing:.12em;color:#e8dcc4;text-transform:uppercase}
+.intro{max-width:650px;margin:16px auto;color:var(--muted);line-height:1.7;font-size:1.05rem}
+.pills{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:22px 0}
+.pill{border:1px solid #ffffff40;background:#1a2840bb;padding:8px 12px;border-radius:999px;font-size:.75rem;font-weight:900}
+.cta{display:inline-block;text-decoration:none;background:var(--gold);color:#0f1b2d;padding:15px 23px;border-radius:10px;font-weight:1000;box-shadow:5px 5px 0 var(--red);margin-top:12px}
+.section{max-width:1000px;margin:auto;padding:28px 20px 45px}
+.section h2{font-family:Impact,'Arial Black',sans-serif;text-transform:uppercase;font-size:clamp(2rem,6vw,3.2rem);margin:0 0 18px}
+.section h2 em{color:var(--gold);font-style:normal}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{background:#1a2840ee;border:1px solid var(--line);border-radius:17px;padding:22px;min-width:0}
+.card h3{margin:0 0 10px}
+.card p{color:var(--muted);line-height:1.6}
+.event-date{text-align:center;font-family:Impact,'Arial Black',sans-serif;font-size:clamp(1.2rem,4.2vw,1.8rem);font-weight:900;letter-spacing:.035em;color:var(--gold)!important;text-shadow:2px 2px 0 var(--purple);margin:22px 0 8px;line-height:1.35}
+.icon{font-size:1.8rem;margin-bottom:12px}
+.maplinks{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.maplinks a,.outline{color:var(--text);border:1px solid #ffffff55;border-radius:9px;padding:10px 12px;text-decoration:none;font-size:.85rem;font-weight:800}
+.video{aspect-ratio:9/16;max-height:520px;background:#0a1520;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.video iframe{width:100%;height:100%;border:0}
+.video-placeholder{height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;gap:12px;color:var(--muted)}
+.video-placeholder a{color:var(--gold)}
+.rsvp{max-width:720px;margin:auto;background:linear-gradient(135deg,#1e3450,#15213a);border:2px solid var(--gold);box-shadow:8px 8px 0 var(--purple);border-radius:18px;padding:clamp(20px,5vw,38px)}
+label{display:block;font-size:.9rem;font-weight:900;margin:14px 0 7px}
+input,textarea,select{width:100%;background:#0f1b2d;color:var(--text);border:1px solid #4a5a7a;border-radius:9px;padding:13px;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--gold)}
+.primary{width:100%;margin-top:17px;padding:15px;border:0;border-radius:9px;background:var(--gold);color:#0f1b2d;font-weight:1000;text-transform:uppercase}
+.notice{min-height:24px;color:#ffe28b;font-weight:800;margin-top:12px;line-height:1.5}
+footer{text-align:center;color:#9aa5b8;font-size:.8rem;padding:28px 16px 90px}
+.whatsapp{position:fixed;right:18px;bottom:18px;z-index:5;border-radius:999px;background:#20b96b;color:white;text-decoration:none;font-weight:1000;padding:13px 17px;box-shadow:0 5px 22px #0007;border:1px solid #ffffff55}
+.hidden{display:none!important}
+.modal{position:fixed;inset:0;background:#05090eef;z-index:20;overflow:auto;padding:14px;display:flex;justify-content:center;align-items:flex-start}
+.admin-panel{width:min(100%,850px);background:#0f1b2d;border:1px solid var(--gold);border-radius:16px;padding:clamp(15px,3vw,24px);margin:10px auto 30px}
+.admin-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.admin-head h2{font-size:1.2rem;margin:0}
+.close{background:transparent;color:white;border:1px solid #ffffff55;border-radius:8px;padding:9px 12px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.tab{background:#1e3450;border:1px solid var(--line);color:var(--text);padding:10px 12px;border-radius:8px;font-weight:800}
+.tab.active{background:var(--gold);color:#0f1b2d;border-color:var(--gold)}
+.admin-content{border-top:1px solid var(--line);padding-top:16px}
+.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.field{min-width:0}
+.full{grid-column:1/-1}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+.actions button{background:#1e3450;color:white;border:1px solid #ffffff50;border-radius:8px;padding:10px 13px;font-weight:800}
+.actions .save{background:var(--gold);color:#0f1b2d;border-color:var(--gold)}
+.small{font-size:.82rem;color:var(--muted);line-height:1.55}
+.guestlist{display:grid;gap:9px}
+.guest{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#1e3450;border:1px solid var(--line);border-radius:10px;padding:12px}
+.guest small{display:block;color:var(--muted);margin-top:5px}
+.guest button{background:transparent;color:white;border:1px solid #ffffff55;border-radius:7px;padding:7px}
+@media(max-width:650px){.grid,.formgrid{grid-template-columns:1fr}.hero{padding-top:45px}.topbar{padding:13px}.section{padding-bottom:35px}.guest{align-items:flex-start}}
+</style>
+</head>
+<body>
+<div id="app">
+<header class="topbar"><div class="brand">JANTAR <span>✦</span> DE ANIVERSÁRIO</div><button class="admin-open" id="openAdmin" type="button">⚙ Admin</button></header>
+<main>
+<section class="hero"><div class="tag">UMA NOITE · UMA MESA · UMA CELEBRAÇÃO</div>
+<h1><span class="luna" id="heroName">ANIVERSÁRIO</span></h1>
+<div class="hero-sub" id="heroSubtitle">Jantar de Aniversário 🍷</div><p class="intro" id="intro">Uma noite especial para celebrar mais um ano de vida, com boa comida, boa companhia e aquela conversa que se prolonga pela noite dentro. Contamos contigo à mesa!</p>
+<div class="pills" id="genres"><span class="pill">🍷 JANTAR</span><span class="pill">✨ CELEBRAÇÃO</span><span class="pill">🥂 BRINDES</span><span class="pill">❤️ AMIZADE</span></div><a class="cta" href="#rsvp">EU VOU! 🥂</a></section>
+<section class="section"><h2>O <em>GRANDE ENCONTRO</em></h2><div class="grid">
+<article class="card"><div class="icon">📅</div><h3>Marca na agenda</h3><p id="dateText" class="event-date">Data a anunciar</p></article>
+<article class="card"><div class="icon">🍽️</div><h3 id="venueName">Local do jantar</h3><p id="addressText">Morada a confirmar pela organização.</p><div class="maplinks"><a id="googleLink" href="https://maps.google.com/" target="_blank" rel="noopener">Google Maps ↗</a><a id="wazeLink" href="https://waze.com/ul" target="_blank" rel="noopener">Waze ↗</a><a id="appleLink" href="https://maps.apple.com/" target="_blank" rel="noopener">Apple Maps ↗</a></div></article>
+</div></section>
+<section class="section"><h2>ESPIA O <em>LOCAL</em></h2><div class="grid"><article class="card"><h3>📍 Como chegar</h3><p>Guarda a localização e escolhe a tua aplicação de navegação favorita.</p><div class="maplinks"><a id="locationLink" href="https://maps.google.com/" target="_blank" rel="noopener">Abrir localização ↗</a></div></article>
+<article class="card"><h3>🎬 Vídeo do local</h3><div class="video" id="videoBox"><div class="video-placeholder">Assiste ao vídeo do Instagram.</div></div></article></div></section>
+<section class="section" id="rsvp"><div class="rsvp"><h2>VAIS <em>JUNTAR-TE?</em> 🍷</h2><p class="intro" style="text-align:left;margin-left:0">Confirma a tua presença para sabermos com quem contar à mesa. Deixa também uma mensagem!</p>
+<form id="rsvpForm"><label for="guestName">O teu nome</label><input id="guestName" required maxlength="80" placeholder="Escreve o teu nome"><label for="guestNote">Mensagem (opcional)</label><textarea id="guestNote" rows="2" maxlength="240" placeholder="Deixa uma mensagem…"></textarea><button class="primary" type="submit">Confirmar presença ✦</button><div class="notice" id="rsvpNotice" aria-live="polite"></div></form></div></section>
+</main><footer>FEITO COM CARINHO, BOA COMIDA E MUITO AMOR · JANTAR DE ANIVERSÁRIO</footer></div>
+<a class="whatsapp" id="waButton" href="https://wa.me/?text=Vem%20jantar%20comigo!" target="_blank" rel="noopener">☏ WhatsApp</a>
+<div class="modal hidden" id="adminModal" role="dialog" aria-modal="true" aria-label="Painel de administração"><div class="admin-panel">
+<div class="admin-head"><h2>⚙️ PAINEL DE ADMINISTRAÇÃO</h2><button class="close" id="closeAdmin" type="button">Fechar ✕</button></div>
+<div id="loginBox"><p class="small">Entra com o e-mail e a palavra-passe do administrador do Firebase Authentication.</p><label for="adminEmail">E-mail do administrador</label><input id="adminEmail" type="email" autocomplete="username" placeholder="admin@exemplo.com"><label for="adminPassword">Palavra-passe</label><input id="adminPassword" type="password" autocomplete="current-password" placeholder="Palavra-passe"><div class="actions"><button class="save" id="loginBtn" type="button">Entrar no painel</button></div><div class="notice" id="loginNotice"></div><p class="small">Ativa E-mail/Palavra-passe em Firebase Authentication e cria o utilizador administrador.</p></div>
+<div id="adminArea" class="hidden"><div class="tabs"><button class="tab active" data-tab="details" type="button">Convite</button><button class="tab" data-tab="style" type="button">Design</button><button class="tab" data-tab="guests" type="button">Confirmações <span id="guestCount">(0)</span></button><button class="tab" data-tab="security" type="button">Conta</button></div>
+<div class="admin-content" id="tab-details"><div class="formgrid">
+<div class="field"><label for="aName">Nome</label><input id="aName" value="ANIVERSÁRIO"></div><div class="field full"><label for="aSubtitle">Tema / subtítulo</label><input id="aSubtitle" value="Jantar de Aniversário 🍷"></div><div class="field full"><label for="aIntro">Texto do convite</label><textarea id="aIntro" rows="3"></textarea></div><div class="field full"><label for="aCostume">Nota extra (opcional)</label><input id="aCostume" placeholder="Ex: Dress code, sugestões..."></div>
+<div class="field"><label for="aVenue">Local / restaurante</label><input id="aVenue" placeholder="Nome do local"></div><div class="field"><label for="aDate">Data</label><input id="aDate" type="date"></div><div class="field"><label for="aTime">Horário</label><input id="aTime" type="time"></div><p class="small full">A data e o horário aparecem centralizados no convite no formato "31/12/2026 a partir das 20 horas". Edite os campos acima para os alterar.</p><div class="field"><label for="aAddress">Morada completa</label><input id="aAddress" placeholder="Rua, número, localidade"></div><div class="field full"><label for="aMap">Link da localização</label><input id="aMap" placeholder="Link do Google Maps"></div><div class="field full"><label for="aVideo">Link do Reel/vídeo do Instagram</label><input id="aVideo" placeholder="https://www.instagram.com/reel/..."></div><div class="field full"><label for="aGenres">Etiquetas (separadas por vírgula)</label><input id="aGenres" value="🍷 JANTAR, ✨ CELEBRAÇÃO, 🥂 BRINDES, ❤️ AMIZADE"></div>
+<div class="field full"><label for="aOgImage">Link da imagem para WhatsApp (og:image)</label><input id="aOgImage" placeholder="https://exemplo.com/imagem.png"></div>
+</div><div class="actions"><button class="save" id="saveDetails" type="button">Guardar alterações</button><button id="resetDetails" type="button">Repor textos iniciais</button></div><p class="small">O vídeo é incorporado dentro desta página quando o Instagram permite a reprodução incorporada. A imagem do WhatsApp é usada nas meta tags da página.</p></div>
+<div class="admin-content hidden" id="tab-style"><div class="formgrid"><div class="field"><label for="aFont">Tipo de letra</label><select id="aFont"><option value="Impact,'Arial Black',sans-serif">Impact / forte</option><option value="Arial,Helvetica,sans-serif">Arial / clean</option><option value="Georgia,serif">Georgia / elegante</option><option value="'Courier New',monospace">Courier / alternativo</option><option value="Trebuchet MS,sans-serif">Trebuchet / pop</option></select></div><div class="field"><label for="aSize">Tamanho do nome</label><select id="aSize"><option value="clamp(4rem,14vw,9rem)">Gigante</option><option value="clamp(3.2rem,10vw,7rem)">Grande</option><option value="clamp(2.5rem,8vw,5rem)">Médio</option></select></div>
+<div class="field"><label for="aGold">Dourado</label><input id="aGold" type="color" value="#d4a24e"></div><div class="field"><label for="aRed">Vermelho</label><input id="aRed" type="color" value="#a8434e"></div><div class="field"><label for="aGreen">Verde</label><input id="aGreen" type="color" value="#2a7a6a"></div><div class="field"><label for="aPurple">Azul</label><input id="aPurple" type="color" value="#4a5a9e"></div><div class="field"><label for="aBg">Fundo</label><input id="aBg" type="color" value="#0f1b2d"></div></div><div class="actions"><button class="save" id="saveStyle" type="button">Aplicar design</button></div></div>
+<div class="admin-content hidden" id="tab-guests"><p class="small">A lista é lida da base de dados online. Se houver erro de permissão, verifica as regras do Realtime Database.</p><div class="actions"><button id="exportGuests" type="button">Exportar CSV</button></div><div class="notice" id="guestNotice"></div><div class="guestlist" id="guestList"></div></div>
+<div class="admin-content hidden" id="tab-security"><p class="small">A sessão usa Firebase Authentication.</p><div class="actions"><button id="logoutBtn" type="button">Terminar sessão</button></div></div>
+</div></div></div>
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import{getDatabase,ref,push,onValue,remove,set}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+import{getAuth,signInWithEmailAndPassword,onAuthStateChanged,signOut}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+const firebaseConfig={apiKey:"AIzaSyAMAt5Ouy3C0q8ooyKce3Upfa6ZSIbfI_U",authDomain:"aniversario-mode.firebaseapp.com",databaseURL:"https://aniversario-mode-default-rtdb.firebaseio.com",projectId:"aniversario-mode",storageBucket:"aniversario-mode.firebasestorage.app",messagingSenderId:"463477210552",appId:"1:463477210552:web:d52fc4f8f11c8dd1ed234d",measurementId:"G-KD3HKB0S3V"};
+const app=initializeApp(firebaseConfig),db=getDatabase(app),auth=getAuth(app),$=id=>document.getElementById(id);
+const DEFAULTS={name:"ANIVERSÁRIO",subtitle:"Jantar de Aniversário 🍷",intro:"Uma noite especial para celebrar mais um ano de vida, com boa comida, boa companhia e aquela conversa que se prolonga pela noite dentro. Contamos contigo à mesa!",costume:"",venue:"",date:"",time:"20:00",address:"",map:"",video:"",genres:"🍷 JANTAR, ✨ CELEBRAÇÃO, 🥂 BRINDES, ❤️ AMIZADE",ogImage:""};
+function localRead(k,f){try{return JSON.parse(localStorage.getItem(k))||f}catch{return f}}
+let settings={...DEFAULTS,...localRead("jantarSettings",{})},guests={},unsubscribe=null;
+settings.subtitle=settings.subtitle||DEFAULTS.subtitle;
+settings.date=settings.date||DEFAULTS.date;settings.time=settings.time||DEFAULTS.time;
+settings.map=settings.map||DEFAULTS.map;settings.video=settings.video||DEFAULTS.video;
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function safeUrl(s){try{let u=new URL(s);return["https:","http:"].includes(u.protocol)?u.href:"#"}catch{return"#"}}
+function formatEventDate(date,time){if(!date)return"Data a anunciar";const p=date.split("-");if(p.length!==3)return date+" a partir das "+(time||"20:00");const hh=(time||"20:00").split(":")[0]||"20";return `${p[2]}/${p[1]}/${p[0]} a partir das ${hh} horas`}
+function apply(){
+$("heroName").textContent=settings.name||"ANIVERSÁRIO";
+$("heroSubtitle").textContent=settings.subtitle||"Jantar de Aniversário 🍷";
+$("intro").innerHTML=esc(settings.intro||"").replace(/\n/g,"<br>")+(settings.costume?"<br><strong>"+esc(settings.costume)+"</strong>":"");
+$("venueName").textContent=settings.venue||"Local do jantar";
+$("dateText").textContent=formatEventDate(settings.date,settings.time);
+$("addressText").textContent=settings.address||"Morada a confirmar pela organização.";
+const m=safeUrl(settings.map);$("googleLink").href=m;$("locationLink").href=m;
+let q=encodeURIComponent(settings.address||settings.venue||"local do jantar");
+$("wazeLink").href=m!="#"?m:"https://waze.com/ul?q="+q+"&navigate=yes";
+$("appleLink").href=m!="#"?m:"https://maps.apple.com/?q="+q;
+$("genres").innerHTML=(settings.genres||"").split(",").map(s=>s.trim()).filter(Boolean).map(s=>`<span class="pill">${esc(s)}</span>`).join("");
+renderVideo(settings.video);
+for(const [v,k,d]of[["gold","jantarGold","#d4a24e"],["red","jantarRed","#a8434e"],["green","jantarGreen","#2a7a6a"],["purple","jantarPurple","#4a5a9e"],["bg","jantarBg","#0f1b2d"]])document.documentElement.style.setProperty("--"+v,localStorage.getItem(k)||d);
+$("heroName").style.fontFamily=localStorage.getItem("jantarFont")||"Impact,'Arial Black',sans-serif";
+$("heroName").style.fontSize=localStorage.getItem("jantarSize")||"clamp(4rem,14vw,9rem)";
+$("waButton").href="https://wa.me/?text="+encodeURIComponent(`Vem jantar comigo! 🍷 ${formatEventDate(settings.date,settings.time)} ${settings.address||settings.venue||settings.map||""}`)
+}
+function renderVideo(raw){let box=$("videoBox");box.replaceChildren();if(!raw){box.innerHTML='<div class="video-placeholder">🎬<b>Vídeo do local</b><span>Adiciona um link no painel Admin.</span></div>';return}let u=safeUrl(raw);if(u==="#"){box.innerHTML='<div class="video-placeholder">Link inválido.</div>';return}let match;try{let p=new URL(u);match=p.hostname.endsWith("instagram.com")?p.pathname.match(/\/(reel|p|tv)\/([^/]+)/):null}catch{}let src=match?`https://www.instagram.com/${match[1]}/${encodeURIComponent(match[2])}/embed/`:u;let f=document.createElement("iframe");f.src=src;f.title="Vídeo do local";f.allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share";f.allowFullscreen=true;f.referrerPolicy="strict-origin-when-cross-origin";box.append(f)}
+function fill(){for(let[k,v]of Object.entries({aName:"name",aSubtitle:"subtitle",aIntro:"intro",aCostume:"costume",aVenue:"venue",aDate:"date",aTime:"time",aAddress:"address",aMap:"map",aVideo:"video",aGenres:"genres",aOgImage:"ogImage"}))$(k).value=settings[v]||"";for(let[id,key,def]of[["aGold","jantarGold","#d4a24e"],["aRed","jantarRed","#a8434e"],["aGreen","jantarGreen","#2a7a6a"],["aPurple","jantarPurple","#4a5a9e"],["aBg","jantarBg","#0f1b2d"]])$(id).value=localStorage.getItem(key)||def;$("aFont").value=localStorage.getItem("jantarFont")||"Impact,'Arial Black',sans-serif";$("aSize").value=localStorage.getItem("jantarSize")||"clamp(4rem,14vw,9rem)"}
+function openAdmin(){$("adminModal").classList.remove("hidden");document.body.style.overflow="hidden";setTimeout(()=>{if(!$("adminArea").classList.contains("hidden"))fill();else $("adminEmail").focus()},60)}
+function closeAdmin(){$("adminModal").classList.add("hidden");document.body.style.overflow=""}
+$("openAdmin").addEventListener("click",openAdmin);$("closeAdmin").addEventListener("click",closeAdmin);$("adminModal").addEventListener("click",e=>{if(e.target===$("adminModal"))closeAdmin()});document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("adminModal").classList.contains("hidden"))closeAdmin()});
+$("loginBtn").addEventListener("click",async()=>{let email=$("adminEmail").value.trim(),password=$("adminPassword").value;if(!email||!password){$("loginNotice").textContent="Preenche o e-mail e a palavra-passe.";return}let b=$("loginBtn");b.disabled=true;b.textContent="A entrar…";try{await signInWithEmailAndPassword(auth,email,password);$("loginNotice").textContent=""}catch(e){$("loginNotice").textContent=e.code?.includes("operation-not-allowed")?"Ativa E-mail/Palavra-passe em Firebase Authentication.":e.code?.includes("invalid-credential")?"E-mail ou palavra-passe incorretos.":"Erro de autenticação: "+(e.message||e.code)}finally{b.disabled=false;b.textContent="Entrar no painel"}});
+onValue(ref(db,"events/jantar/settings"),snap=>{if(snap.exists()){settings={...DEFAULTS,...snap.val()};localStorage.setItem("jantarSettings",JSON.stringify(settings));apply();if(!$("adminArea").classList.contains("hidden"))fill()}},err=>console.warn("Não foi possível carregar as definições online:",err.code));
+onAuthStateChanged(auth,user=>{if(user){$("loginBox").classList.add("hidden");$("adminArea").classList.remove("hidden");fill();startGuests()}else{$("loginBox").classList.remove("hidden");$("adminArea").classList.add("hidden");if(unsubscribe){unsubscribe();unsubscribe=null}}});
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t===b));document.querySelectorAll(".admin-content").forEach(c=>c.classList.add("hidden"));$("tab-"+b.dataset.tab).classList.remove("hidden");if(b.dataset.tab==="guests")renderGuests()}));
+$("saveDetails").addEventListener("click",async()=>{settings={name:$("aName").value.trim()||"ANIVERSÁRIO",subtitle:$("aSubtitle").value.trim(),intro:$("aIntro").value.trim(),costume:$("aCostume").value.trim(),venue:$("aVenue").value.trim(),date:$("aDate").value,time:$("aTime").value,address:$("aAddress").value.trim(),map:$("aMap").value.trim(),video:$("aVideo").value.trim(),genres:$("aGenres").value.trim(),ogImage:$("aOgImage").value.trim()};localStorage.setItem("jantarSettings",JSON.stringify(settings));apply();updateOgImage(settings.ogImage);try{await set(ref(db,"events/jantar/settings"),settings);alert("Convite atualizado e guardado online para todos os visitantes.")}catch(e){alert("O convite foi atualizado neste navegador, mas não foi possível guardar online. Verifica as regras do Realtime Database. ("+(e.code||"erro")+")")}});
+$("resetDetails").addEventListener("click",()=>{if(confirm("Repor os textos iniciais?")){settings={...DEFAULTS};localStorage.setItem("jantarSettings",JSON.stringify(settings));fill();apply();set(ref(db,"events/jantar/settings"),settings).catch(e=>alert("Não foi possível guardar os textos iniciais online: "+(e.code||"erro")))}});
+$("saveStyle").addEventListener("click",()=>{for(let[id,key]of[["aGold","jantarGold"],["aRed","jantarRed"],["aGreen","jantarGreen"],["aPurple","jantarPurple"],["aBg","jantarBg"]])localStorage.setItem(key,$(id).value);localStorage.setItem("jantarFont",$("aFont").value);localStorage.setItem("jantarSize",$("aSize").value);apply();alert("Design aplicado.")});
+$("logoutBtn").addEventListener("click",()=>signOut(auth));
+$("rsvpForm").addEventListener("submit",async e=>{e.preventDefault();let name=$("guestName").value.trim(),note=$("guestNote").value.trim(),btn=$("rsvpForm").querySelector("button[type=submit]");if(!name)return;btn.disabled=true;btn.textContent="A guardar…";try{await push(ref(db,"rsvps"),{name,note,date:new Date().toISOString(),event:"jantar"});$("rsvpNotice").textContent="Presença confirmada! Contamos contigo 🍷";$("rsvpForm").reset()}catch(err){$("rsvpNotice").textContent="Não foi possível guardar online. Verifica as regras do Realtime Database. ("+(err.code||"erro")+")"}finally{btn.disabled=false;btn.textContent="Confirmar presença ✦"}});
+function startGuests(){if(unsubscribe)unsubscribe();unsubscribe=onValue(ref(db,"rsvps"),s=>{guests=s.val()||{};renderGuests()},e=>{$("guestNotice").textContent="Erro ao carregar lista: "+e.message})}
+function renderGuests(){let arr=Object.entries(guests).filter(([k,v])=>v&&v.event==="jantar");$("guestCount").textContent="("+arr.length+")";$("guestList").innerHTML=arr.length?arr.map(([id,g])=>`<div class="guest"><div><b>${esc(g.name||"Sem nome")}</b><small>${esc(g.note||"Sem mensagem")} · ${esc(g.date?new Date(g.date).toLocaleString("pt-PT"):"")}</small></div><button type="button" data-remove="${esc(id)}">Excluir</button></div>`).join(""):'<p class="small">Ainda não há confirmações para este jantar.</p>';$("guestList").querySelectorAll("[data-remove]").forEach(b=>b.addEventListener("click",async()=>{if(confirm("Excluir esta confirmação?"))try{await remove(ref(db,"rsvps/"+b.dataset.remove))}catch(e){alert("Não foi possível excluir. Verifica as regras Firebase.")}}))}
+$("exportGuests").addEventListener("click",()=>{let arr=Object.values(guests).filter(g=>g&&g.event==="jantar"),csv=[["Nome","Mensagem","Data"],...arr.map(g=>[g.name||"",g.note||"",g.date||""])].map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(";")).join("\r\n"),blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}),u=URL.createObjectURL(blob),a=document.createElement("a");a.href=u;a.download="confirmacoes-jantar-aniversario.csv";a.click();URL.revokeObjectURL(u)});
+function updateOgImage(url){
+  try{
+    if(url){
+      let og=document.querySelector('meta[property="og:image"]');if(og)og.setAttribute("content",url);
+      let tw=document.querySelector('meta[name="twitter:image"]');if(tw)tw.setAttribute("content",url);
+    }
+  }catch(e){}
+}
+apply();
+updateOgImage(settings.ogImage);
+</script>
+</body></html>
